@@ -45,6 +45,9 @@ $(ELF): $(OBJS)
 	$(CC) $(LDFLAGS) -o $(ELF) $(OBJS)
 	$(OD) -h -S $(ELF) > $(BUILDDIR)/$(TARG).lss
 
+$(HEX): $(ELF)
+	$(CP) -O ihex -R .eeprom -R .nwram $(ELF) $(HEX)
+
 size: $(ELF)
 	$(SZ) $(ELF)
 

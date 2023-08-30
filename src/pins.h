@@ -21,4 +21,7 @@
 #define LATCH               D
 #define LATCH_LINE          (1<<5)
 
+#define LED                 D
+#define LED_LINE            (1<<0)
+
 #endif // PINS_H
