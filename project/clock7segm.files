@@ -1,3 +1,5 @@
 ../src/Makefile
 ../src/main.c
 ../src/pins.h
+../src/segm.c
+../src/segm.h
