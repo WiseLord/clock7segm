@@ -30,7 +30,9 @@
 #define CH_E        (BIT_A | BIT_B | BIT_C | BIT_D | BIT_G)
 
 void segmInit(void);
+
 void segmNum(int16_t number, uint8_t dot);
 void segmShow(void);
+void segmTime(void);
 
 #endif // SEGM_H

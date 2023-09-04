@@ -13,6 +13,7 @@
 #define IN(x)               DDR(x) &= ~x ## _LINE
 #define SET(x)              PORT(x) |= x ## _LINE
 #define CLR(x)              PORT(x) &= ~x ## _LINE
+#define READ(x)             (PIN(x) & x ## _LINE)
 
 #define SERIN               D
 #define SERIN_LINE          (1<<7)
@@ -21,7 +22,9 @@
 #define LATCH               D
 #define LATCH_LINE          (1<<5)
 
-#define LED                 D
-#define LED_LINE            (1<<0)
+#define I2C_SCL             C
+#define I2C_SCL_LINE        (1<<5)
+#define I2C_SDA             C
+#define I2C_SDA_LINE        (1<<4)
 
 #endif // PINS_H

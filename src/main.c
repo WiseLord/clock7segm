@@ -3,25 +3,18 @@
 
 #include "segm.h"
 #include "pins.h"
+#include "rtc.h"
 
 int main(void)
 {
     segmInit();
-    
-    OUT(LED);
-    
+
     while(1) {
-        for (int16_t i = 9999; i >= 0; i--) {
-            segmNum(i, 0);
-            segmShow();
-            
-            if (i % 2 == 0) {
-                SET(LED);
-            } else {
-                CLR(LED);
-            }
-            _delay_ms(100);
-        }
+        rtcReadTime();
+        segmTime();
+
+        segmShow();
+        _delay_ms(100);
     }
 
     return 0;

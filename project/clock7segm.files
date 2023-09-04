@@ -1,5 +1,9 @@
 ../src/Makefile
+../src/i2csw.c
+../src/i2csw.h
 ../src/main.c
 ../src/pins.h
+../src/rtc.c
+../src/rtc.h
 ../src/segm.c
 ../src/segm.h
