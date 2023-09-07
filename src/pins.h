@@ -22,6 +22,13 @@
 #define LATCH               D
 #define LATCH_LINE          (1<<5)
 
+#define BUTTON_1            C
+#define BUTTON_1_LINE       (1<<3)
+#define BUTTON_2            C
+#define BUTTON_2_LINE       (1<<2)
+#define BUTTON_3            C
+#define BUTTON_3_LINE       (1<<1)
+
 #define I2C_SCL             C
 #define I2C_SCL_LINE        (1<<5)
 #define I2C_SDA             C

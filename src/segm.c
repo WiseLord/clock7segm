@@ -4,6 +4,7 @@
 
 #include "pins.h"
 #include "rtc.h"
+#include "mtimer.h"
 
 static volatile uint8_t ind[DIGITS];
 static const uint8_t num[] = {CH_0, CH_1, CH_2, CH_3, CH_4, CH_5, CH_6, CH_7, CH_8, CH_9};
@@ -77,6 +78,12 @@ void segmTime()
     // Prepare indicators data
     ind[0] = num[tmR % 10];
     ind[1] = num[tmR / 10];
+
     ind[2] = num[tmL % 10];
     ind[3] = num[tmL / 10];
+
+    // Show dot
+    if (rtc.sec % 2) {
+        ind[2] |= BIT_P;
+    }
 }

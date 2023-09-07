@@ -2,6 +2,8 @@
 ../src/i2csw.c
 ../src/i2csw.h
 ../src/main.c
+../src/mtimer.c
+../src/mtimer.h
 ../src/pins.h
 ../src/rtc.c
 ../src/rtc.h
