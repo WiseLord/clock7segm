@@ -3,8 +3,15 @@
 #include <avr/interrupt.h>
 #include "pins.h"
 
+// Temperature/pressure/humidity sensor poll timer
+volatile uint8_t sensTimer = 0;
+volatile uint8_t dispTimer = 0;
+
 // Command buffer
 static volatile uint8_t cmdBuf;
+
+// Seconds timer
+static volatile uint8_t secTimer = TIME_SEC;
 
 void mTimerInit(void)
 {
@@ -20,7 +27,6 @@ void mTimerInit(void)
     SET(BUTTON_3);
 
     cmdBuf = BTN_1;
-
 }
 
 ISR (TIMER0_OVF_vect)                                   // 43200 / (256 - 83) = 250 polls/sec
@@ -52,6 +58,23 @@ ISR (TIMER0_OVF_vect)                                   // 43200 / (256 - 83) = 
         if ((btnCnt > SHORT_PRESS) && (btnCnt < LONG_PRESS))
             cmdBuf = btnPrev;
         btnCnt = 0;
+    }
+
+    // 1 second intervals
+    if (secTimer) {
+        secTimer--;
+    } else {
+        secTimer = TIME_SEC;
+        // Temperature
+        if (sensTimer) {
+            sensTimer--;
+        }
+        // Display
+        if (dispTimer) {
+            dispTimer--;
+        } else {
+            dispTimer = DISPLAY_TIME;
+        }
     }
 }
 

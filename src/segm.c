@@ -2,6 +2,7 @@
 
 #include <util/delay.h>
 
+#include "ds18x20.h"
 #include "pins.h"
 #include "rtc.h"
 #include "mtimer.h"
@@ -87,3 +88,21 @@ void segmTime()
         ind[2] |= BIT_P;
     }
 }
+
+void segmTemp(uint8_t id)
+{
+    int16_t temp = ds18x20GetTemp(id);
+
+    int16_t t = temp;
+    if (t < 0) {
+        t = -t;
+    }
+
+    ind[0] = num[t % 10];
+    t /= 10;
+    ind[1] = num[t % 10] | BIT_P;
+    t /= 10;
+    ind[2] = t == 0 ? (temp < 0 ? BIT_G : 0) : num[t % 10];
+    ind[3] = t == 0 ? 0 : (temp < 0 ? BIT_G : 0);
+}
+

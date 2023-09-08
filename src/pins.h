@@ -34,4 +34,7 @@
 #define I2C_SDA             C
 #define I2C_SDA_LINE        (1<<4)
 
+#define ONE_WIRE            C
+#define ONE_WIRE_LINE       (1<<0)
+
 #endif // PINS_H

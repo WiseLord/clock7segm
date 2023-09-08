@@ -34,5 +34,6 @@ void segmInit(void);
 void segmNum(int16_t number, uint8_t dot);
 void segmShow(void);
 void segmTime(void);
+void segmTemp(uint8_t id);
 
 #endif // SEGM_H

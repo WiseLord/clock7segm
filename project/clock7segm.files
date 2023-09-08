@@ -1,4 +1,6 @@
 ../src/Makefile
+../src/ds18x20.c
+../src/ds18x20.h
 ../src/i2csw.c
 ../src/i2csw.h
 ../src/main.c

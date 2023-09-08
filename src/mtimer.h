@@ -4,7 +4,10 @@
 #include <inttypes.h>
 
 #define TEMP_MEASURE_TIME       2
-#define SENSOR_POLL_INTERVAL    10
+#define SENSOR_POLL_INTERVAL    8
+
+#define DISPLAY_TIME            12
+#define DISPLAY_TEMP            2
 
 #define BTN_STATE_0             0x00
 #define BTN_0                   (1<<0)
@@ -22,6 +25,11 @@
 #define BEEP_LONG               40
 
 #define TIME_SEC                250
+
+#define TIME_DISP                250
+
+extern volatile uint8_t sensTimer;
+extern volatile uint8_t dispTimer;
 
 void mTimerInit(void);
 
